@@ -77,19 +77,97 @@ To address the challenges and objectives, the following approach will be underta
 ---
 
 ## **Usage Instructions**
-1. Clone this repository:
-   ```bash
-   git clone <repository-url>
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Load the dataset and preprocess it using the provided scripts.
-4. Run the Jupyter notebooks for EDA and modeling.
-5. Generate insights and evaluate the model performance.
+1# How to Run Application
 
----
+### Build and Run the Application Using Docker
+```bash
+docker build -t depression_app .
+docker run -it --rm -p 5000:9696 depression_app
+```
+
+
+
+## Run locally
+```bash
+git clone https://github.com/Wali-Mohamed/DepressionRiskPredictor.git
+cd depression_predictor
+pip install pipenv
+```
+### Install Dependencies
+
+```bash
+pipenv install
+```
+### Activate virtual environment
+```bash
+pipenv shell
+```
+
+### Run the Application
+```
+```bash
+python app.py
+
+```
+
+### Deactivate the environment
+```bash
+exit
+```
+* Web Service
+
+```
+Start service:  python app.py
+In jupyter notebook, issue following statements:
+
+- import requests
+- url = 'http://localhost:9696/predict'
+- person ={
+    "age": 6.0,
+    "academic-pressure": -1,
+    "work-pressure": 5,
+    "cgpa": -1,
+    "study-satisfaction": -1,
+    "job-satisfaction": 1,
+    "work-study-hours": 15.0,
+    "financial-stress": 5.0,
+    "gender": "male",
+    "city": "pune",
+    "working-professional-or-student": "working professional",
+    "profession": "teacher",
+    "sleep-duration": "less than 5 hours",
+    "dietary-habits": "unhealthy",
+    "degree": "b.tech",
+    "have-you-ever-had-suicidal-thoughts-?": "no",
+    "family-history-of-mental-illness": "yes"
+}
+	- requests.post(url, json=person).json()
+
+```
+On command line
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{
+    "age": 60.0,
+    "academic-pressure": -1,
+    "work-pressure": 5,
+    "cgpa": -1,
+    "study-satisfaction": -1,
+    "job-satisfaction": 1,
+    "work-study-hours": 15.0,
+    "financial-stress": 5.0,
+    "gender": "male",
+    "city": "pune",
+    "working-professional-or-student": "working professional",
+    "profession": "teacher",
+    "sleep-duration": "less than 5 hours",
+    "dietary-habits": "unhealthy",
+    "degree": "b.tech",
+    "have-you-ever-had-suicidal-thoughts-?": "yes",
+    "family-history-of-mental-illness": "yes"
+
+}'  http://localhost:9696/predict
+```
 
 ## **Future Work**
 - Incorporate additional data sources for richer analysis.
