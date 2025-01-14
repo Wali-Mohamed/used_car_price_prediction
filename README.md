@@ -36,35 +36,6 @@ The dataset contains 3,685 unique vehicle listings with the following 13 feature
 
 ---
 
-## **Solution Approach**
-To address the challenges and objectives, the following approach will be undertaken:
-
-### **1. Data Cleaning and Preprocessing**
-- Handle missing values using imputation techniques.
-- Standardize numerical features (e.g., Mileage, Price) for better model performance.
-- Encode categorical features (e.g., Fuel Type, Gearbox) using appropriate encoding methods like `OneHotEncoder` or `DictVectorizer`.
-
-### **2. Exploratory Data Analysis (EDA)**
-- Visualize correlations between features and price.
-- Identify trends in mileage, age, and fuel type preferences.
-- Segment cars based on attributes like Body Type or Emission Class.
-
-### **3. Predictive Modeling**
-- Develop a regression model to predict car prices based on the dataset's features.
-- Evaluate model performance using metrics like RMSE and R².
-- Optimize the model using feature engineering and hyperparameter tuning.
-
-### **4. Insights and Recommendations**
-- Provide actionable insights for buyers and sellers.
-- Highlight trends, such as how fuel type affects pricing or the role of service history.
-
----
-
-## **Key Outcomes**
-- **Accurate Pricing Model**: A reliable regression model to predict car prices.
-- **Market Trends**: Insights into how different features influence car pricing.
-- **Consumer Guidance**: Practical recommendations for buyers and sellers in the UK used car market.
-
 ---
 
 ## **Technologies Used**
@@ -73,6 +44,7 @@ To address the challenges and objectives, the following approach will be underta
   - `pandas`, `numpy`: Data manipulation and preprocessing.
   - `matplotlib`, `seaborn`: Visualization.
   - `scikit-learn`: Machine learning.
+  - `Neural Networks`: Deep Learning
 
 ---
 
@@ -81,26 +53,17 @@ To address the challenges and objectives, the following approach will be underta
 
 ### Build and Run the Application Using Docker
 ```bash
-docker build -t depression_app .
-docker run -it --rm -p 5000:9696 depression_app
+docker build -t car_price_predictor .
+docker run -it --rm -p 9696:9696 car_price_predictor
 ```
 
 
 
 ## Run locally
 ```bash
-git clone https://github.com/Wali-Mohamed/DepressionRiskPredictor.git
-cd depression_predictor
-pip install pipenv
-```
-### Install Dependencies
-
-```bash
-pipenv install
-```
-### Activate virtual environment
-```bash
-pipenv shell
+git clone https://github.com/Wali-Mohamed/used_car_prediction.git
+cd car_price_predictor
+pip install requirements
 ```
 
 ### Run the Application
@@ -120,71 +83,66 @@ exit
 Start service:  python app.py
 In jupyter notebook, issue following statements:
 
-- import requests
-- url = 'http://localhost:9696/predict'
-- person ={
-    "age": 6.0,
-    "academic-pressure": -1,
-    "work-pressure": 5,
-    "cgpa": -1,
-    "study-satisfaction": -1,
-    "job-satisfaction": 1,
-    "work-study-hours": 15.0,
-    "financial-stress": 5.0,
-    "gender": "male",
-    "city": "pune",
-    "working-professional-or-student": "working professional",
-    "profession": "teacher",
-    "sleep-duration": "less than 5 hours",
-    "dietary-habits": "unhealthy",
-    "degree": "b.tech",
-    "have-you-ever-had-suicidal-thoughts-?": "no",
-    "family-history-of-mental-illness": "yes"
+import requests
+
+url = 'http://127.0.0.1:5000/predict'
+data = {
+    "brand": "SKODA",
+    "mileage(miles)": 70189,
+    "registration_year": 2016,
+    "previous_owners": 3,
+    "fuel_type": "Diesel",
+    "body_type": "Hatchback",
+    "engine": "1.4L",
+    "gearbox": "Manual",
+    "doors": 5,
+    "seats": 5,
+    "emission_class": "Euro 6",
+    "service_history": "unknown"
 }
-	- requests.post(url, json=person).json()
+
+response = requests.post(url, json=data)
 
 ```
 On command line
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{
-    "age": 60.0,
-    "academic-pressure": -1,
-    "work-pressure": 5,
-    "cgpa": -1,
-    "study-satisfaction": -1,
-    "job-satisfaction": 1,
-    "work-study-hours": 15.0,
-    "financial-stress": 5.0,
-    "gender": "male",
-    "city": "pune",
-    "working-professional-or-student": "working professional",
-    "profession": "teacher",
-    "sleep-duration": "less than 5 hours",
-    "dietary-habits": "unhealthy",
-    "degree": "b.tech",
-    "have-you-ever-had-suicidal-thoughts-?": "yes",
-    "family-history-of-mental-illness": "yes"
-
-}'  http://localhost:9696/predict
+     "brand": "SKODA",
+    "mileage(miles)": 70189,
+    "registration_year": 2016,
+    "previous_owners": 3,
+    "fuel_type": "Diesel",
+    "body_type": "Hatchback",
+    "engine": "1.4L",
+    "gearbox": "Manual",
+    "doors": 5,
+    "seats": 5,
+    "emission_class": "Euro 6",
+    "service_history": "unknown"
+}'  http://localhost:5000/predict
 ```
 
-## **Future Work**
-- Incorporate additional data sources for richer analysis.
-- Explore advanced models like Gradient Boosting or Neural Networks.
-- Create a web-based application for real-time price prediction.
+### Model Performance
 
----
+# Model Performance
 
-## **Contributions**
-Contributions to this project are welcome. Feel free to submit a pull request or open an issue with suggestions or improvements.
+## Linear Regression
+- **RMSE**: 2173
+- **R2 Score**: 0.76
 
----
+## Random Forest Regression
+- **RMSE**: 1574
+- **R2 Score**: 0.87
+
+## Neural Network (MLPRegressor)
+- **RMSE**: 1397
+- **R2 Score**: 0.90
+
+## Final Deep Learning Model (Training and Validation Combined)
+- **RMSE**: 1332
+- **R2 Score**: 0.88
 
 ## **License**
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
----
-
-## **Contact**
-For queries or collaborations, reach out at: [Your Email Address].
