@@ -84,9 +84,10 @@ docker run -it --rm -p 9696:9696 car_price_predictor
 ### Run it on Docker
 
 if you are in main working directory
-
+```
 python run test.py
-and make sure local host is 9696
+```
+and make sure localhost is 9696
 
 
 ## Run locally
