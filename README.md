@@ -47,7 +47,29 @@ The dataset contains 3,685 unique vehicle listings with the following 13 feature
   - `Neural Networks`: Deep Learning
 
 ---
+## ColumnTransformer and Pipeline
 
+### ColumnTransformer  
+The `ColumnTransformer` is a tool in scikit-learn that allows you to apply different preprocessing techniques to specific columns of your dataset. This is particularly useful when you have a mix of numerical and categorical features, as it lets you handle each type appropriately. For instance, you can scale numerical columns and one-hot encode categorical columns in a single step. 
+
+## Pipeline
+
+The `Pipeline` in scikit-learn is a powerful tool that allows you to chain together multiple steps, such as data preprocessing and model training, into a single streamlined workflow. It ensures that these steps are executed in sequence, reducing the risk of errors and improving code readability. 
+
+### Key Features
+- **Consistency**: Ensures that the same preprocessing steps are applied to both training and testing data, preventing data leakage.
+- **Automation**: Automates repetitive tasks like feature scaling and transformation.
+- **Modularity**: Each step in the pipeline can be replaced or modified easily.
+- **Integration**: Combines preprocessing and machine learning models into one object for simplified training and testing.
+
+---
+
+### How to Import  
+```python
+from sklearn.pipeline import Pipeline
+**How to import:**  
+```python
+from sklearn.compose import ColumnTransformer
 ## **Usage Instructions**
 1# How to Run Application
 
@@ -56,7 +78,12 @@ The dataset contains 3,685 unique vehicle listings with the following 13 feature
 docker build -t car_price_predictor .
 docker run -it --rm -p 9696:9696 car_price_predictor
 ```
+### Run it on Docker
 
+if you are in main working directory
+
+python run test.py
+and make sure local host is 9696
 
 
 ## Run locally
@@ -72,7 +99,8 @@ pip install requirements
 python app.py
 
 ```
-
+make sure of the local host number
+usually is 5000
 ### Deactivate the environment
 ```bash
 exit
