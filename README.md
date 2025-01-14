@@ -70,18 +70,26 @@ The `Pipeline` in scikit-learn is a powerful tool that allows you to chain toget
 ### How to Import  
 ```python
 from sklearn.pipeline import Pipeline
-**How to import:**  
-```python
 from sklearn.compose import ColumnTransformer
-## **Usage Instructions**
-1# How to Run Application
 
-### Build and Run the Application Using Docker
+```
+
+
+
+## **Usage Instructions**
+
+### How to Run Application
+
+## On cloud
+
+[Car Price Predictor](http://3.8.208.61:9696)
+
+## Build and Run the Application Using Docker
 ```bash
 docker build -t car_price_predictor .
 docker run -it --rm -p 9696:9696 car_price_predictor
 ```
-### Run it on Docker
+## Run it on Docker
 
 if you are in main working directory
 ```
@@ -99,6 +107,7 @@ pip install -r requirements.text
 
 ### Run the Application
 ```
+
 ```bash
 python app.py
 
