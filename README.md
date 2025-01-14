@@ -94,7 +94,7 @@ and make sure localhost is 9696
 ```bash
 git clone https://github.com/Wali-Mohamed/used_car_prediction.git
 cd car_price_predictor
-pip install requirements
+pip install -r requirements.text
 ```
 
 ### Run the Application
