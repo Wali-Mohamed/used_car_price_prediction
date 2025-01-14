@@ -46,7 +46,7 @@ def predict():
         prediction = model_pipeline.predict(input_data)
         
         # Return the prediction
-        price = f'£ {float(prediction[0]):.2f}'
+        price = f'{float(prediction[0]):.2f}'
         print(price)  # This will print the result in the console
         return jsonify({'price': price})
         #return  jsonify({'price': f'£{float(prediction[0]):.2f}'})  # Ensure the response is JSON serializable
