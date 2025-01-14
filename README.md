@@ -12,6 +12,9 @@ This project aims to analyze and model used car prices using a comprehensive dat
 3. **Inform Market Analysts**: Provide trends and key drivers of value in the used car market.
 
 ---
+Dataset
+
+https://www.kaggle.com/datasets/muhammadawaistayyab/used-cars-prices-in-uk
 
 ## **Dataset Overview**
 The dataset contains 3,685 unique vehicle listings with the following 13 features:
