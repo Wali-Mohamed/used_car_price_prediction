@@ -1,3 +1,5 @@
 Flask==3.1.0
-numpy==1.23.5
+numpy
 gunicorn
+pandas
+scikit-learn

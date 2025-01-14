@@ -11,4 +11,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
     "seats": 5,
     "emission_class": "Euro 6",
     "service_history": "unknown"
-}' http://127.0.0.1:5000/predict
+}' http://127.0.0.1:9696/predict
+
+
+docker run -p 9696:9696 car_price_predictor
