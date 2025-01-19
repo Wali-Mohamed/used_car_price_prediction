@@ -109,7 +109,13 @@ pip install -r requirements.text
 ```
 
 ```bash
+#train if needed by
+python train.py
+
 python app.py
+
+# Test it
+python test.py
 
 ```
 make sure of the local host number
