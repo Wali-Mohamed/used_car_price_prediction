@@ -118,8 +118,8 @@ python app.py
 python test.py
 
 ```
-make sure of the local host number
-usually is 5000
+make sure of the local host number by editing test.py in the port number. Change from 9696 to 5000
+
 ### Deactivate the environment
 ```bash
 exit
