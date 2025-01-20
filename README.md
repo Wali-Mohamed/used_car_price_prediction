@@ -74,15 +74,16 @@ from sklearn.compose import ColumnTransformer
 
 ```
 
+### Interface
+## On cloud
 
+[Car Price Predictor](http://3.8.208.61:9696)
 
 ## **Usage Instructions**
 
 ### How to Run Application
 
-## On cloud
 
-[Car Price Predictor](http://3.8.208.61:9696)
 
 ## Build and Run the Application Using Docker
 ```bash
@@ -101,11 +102,22 @@ and make sure localhost is 9696
 ## Run locally
 ```bash
 git clone https://github.com/Wali-Mohamed/used_car_prediction.git
+
+```
+```
 cd car_price_predictor
-pip install -r requirements.text
+
+conda create --name price_prediction
+
+```
+### create conda environment
+```
+# activate virtual environment
+conda activate price_prediction
 ```
 
-### Run the Application
+```
+pip install -r requirements.text
 ```
 
 ```bash
